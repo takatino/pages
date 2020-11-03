@@ -1,5 +1,5 @@
 body {
-    font: normal 1em Inter UI, sans-serif;
+    font: normal 16px Inter UI, sans-serif;
     color: rgb(207, 207, 207);
     background-color: rgb(32, 32, 32);
     margin: 0;
@@ -16,40 +16,39 @@ a {
     height: 80px;
     background-color: rgb(26, 26, 26);
     font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subright {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.subright > a {
+    margin-left: 20%;
+}
+
+
+.main, .top{
     padding-left: 20%;
     padding-right: 20%;
 }
 
-.left {
-    width: 160px;
-    height: 100%;
-    float: left;
-    position: relative;
-    border: 2px dashed red;
-}
+@media screen and (max-width: 900px) {
+    .main, .top{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 
-.left > a {
-    position: absolute;
-    top: 50%;
-    margin-top: -16px;
-}
-
-.right{
-    height: 100%;
-    float: right;
-    position: relative;
-    border: 2px dashed red;
-}
-
-.right > a {
-    position: relative;
-    margin-left: 20px;
-    top: 30%;
-    border: 2px dashed red;
-}
-
-
-.main{
-    padding-left: 20%;
-    padding-right: 20%;
+    .top{
+        width: 80%;
+    }
 }
