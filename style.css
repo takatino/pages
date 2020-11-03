@@ -74,6 +74,13 @@ a {
     border-bottom-left-radius: .375rem;
 }
 
+#profilepicmobile {
+    width: 100%;
+    border-top-left-radius: .375rem;
+    border-top-right-radius: .375rem;
+    display: none;
+}
+
 #about {
     padding: 5px 20px;
 }
@@ -96,6 +103,12 @@ a {
     border-radius: .375rem;
 }
 
+#contact {
+    margin: 0 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 1350px) {
     .main, .top{
         padding-left: 10%;
@@ -108,10 +121,19 @@ a {
 }
 
 @media screen and (max-width: 1030px) {
+    .card{
+        flex-direction: column;
+    }
+
     #profilepic {
         display: none;
     }
     
+    #profilepicmobile {
+        display: unset;
+    }
+
+
     .top{
         padding-left: 10%;
         padding-right: 10%;
