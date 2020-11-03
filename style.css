@@ -75,7 +75,7 @@ a {
 }
 
 #profilepicmobile {
-    width: 100%;
+    width: 80vw;
     border-top-left-radius: .375rem;
     border-top-right-radius: .375rem;
     display: none;
@@ -120,7 +120,7 @@ a {
     }
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1020px) {
     .card{
         flex-direction: column;
     }
@@ -133,16 +133,7 @@ a {
         display: unset;
     }
 
-
-    .top{
-        padding-left: 10%;
-        padding-right: 10%;
-        width: 80%;
-    }
-
     .main{
-        padding-left: 10%;
-        padding-right: 10%;
         margin-top: 50px;
     }
 }
