@@ -31,6 +31,7 @@ pinky_down.src = "./images/pinky_down.png";
 
 
 ///loads audio
+const audio_voiceSS = new Audio("./audio/voiceSS.mp3");
 const audio_voiceS = new Audio("./audio/voiceS.mp3");
 const audio_voiceA = new Audio("./audio/voiceA.mp3");
 const audio_voiceB = new Audio("./audio/voiceB.mp3");
@@ -94,13 +95,13 @@ function gacha(){
     else if (roll > 92) {
         rank = "A";
         hand = A_hands[Math.floor(Math.random() * A_hands.length)];
-        pity += 0.01;
+        pity += 0.05;
         return; 
     }
     else if (roll > 77) {
         rank = "B";
         hand = B_hands[Math.floor(Math.random() * B_hands.length)];
-        pity += 0.02;
+        pity += 0.05;
         return;
     }
     else {
@@ -124,11 +125,15 @@ async function gacha_animation(){
         await timer((i+25)*2);
     }
     await timer(200);
-    if (rank == "S") {audio_voiceS.play();}
+    if (rank == "SS") {audio_voiceSS.play();}
+    else if (rank == "S") {audio_voiceS.play();}
     else if (rank == "A") {audio_voiceA.play();}
     else if (rank == "B") {audio_voiceB.play();}
     else if (rank == "C") {audio_voiceC.play();}
     await timer(300);
+    eventLock = 0.5;
+    draw();
+    await timer(1000);
     eventLock = 0;
 }
 
@@ -143,14 +148,14 @@ function draw(){
     ctx.fillStyle = "white";
     ctx.fillText("指ぽきぽきゲーム", canvas.width/2 - 85, 80);
 
-    if (eventLock == 0) {
+    if (eventLock != 1) {
         ctx.font = "86px Monospace";
         if (rank == "SS") {ctx.fillStyle = "#DC143C";} //crimson
         else if (rank == "S") {ctx.fillStyle = "#d4af37";} //gold
         else if (rank == "A") {ctx.fillStyle = "#d41cd4";} //purple
         else if (rank == "B") {ctx.fillStyle = "#76ee00";} //green
         else if (rank == "C") {ctx.fillStyle =  "white";} //white
-        ctx.fillText(rank, 260, 460);
+        ctx.fillText(rank, 230, 460);
     }
 
     ctx.drawImage(palm, 30, 120);
